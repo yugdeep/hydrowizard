@@ -10,4 +10,5 @@ recursive-include docs *.rst
 recursive-include docs Makefile
 prune examples
 prune tests
+global-exclude .readthedocs.yaml
 global-exclude *.py[cod] __pycache__ *.so *.sh *.DS_Store *.cfg *.lock
