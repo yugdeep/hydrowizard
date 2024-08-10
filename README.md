@@ -1,11 +1,11 @@
 # HydroWizard
 
 [![PyPI version](https://img.shields.io/badge/pypi-v0.1.5-blue)](https://pypi.org/project/hydrowizard/)
-[![Build](https://github.com/yugdeep/hw-python/workflows/CI/badge.svg)](https://github.com/yugdeep/hw-python/actions)
-[![Documentation](https://github.com/yugdeep/hw-python/actions/workflows/docs.yml/badge.svg)](https://github.com/yugdeep/hw-python/actions/workflows/docs.yml)
-[![Release](https://github.com/yugdeep/hw-python/actions/workflows/release.yml/badge.svg)](https://github.com/yugdeep/hw-python/actions/workflows/release.yml)
-[![License](https://img.shields.io/badge/License-Proprietary-blue.svg)](https://github.com/yugdeep/hw-python/blob/main/LICENSE)
-[![Python Versions](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)](https://github.com/yugdeep/hw-python)
+[![Build](https://github.com/yugdeep/hydrowizard/workflows/CI/badge.svg)](https://github.com/yugdeep/hydrowizard/actions)
+[![Documentation](https://github.com/yugdeep/hydrowizard/actions/workflows/docs.yml/badge.svg)](https://github.com/yugdeep/hydrowizard/actions/workflows/docs.yml)
+[![Release](https://github.com/yugdeep/hydrowizard/actions/workflows/release.yml/badge.svg)](https://github.com/yugdeep/hydrowizard/actions/workflows/release.yml)
+[![License](https://img.shields.io/badge/License-Proprietary-blue.svg)](https://github.com/yugdeep/hydrowizard/blob/main/LICENSE)
+[![Python Versions](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)](https://github.com/yugdeep/hydrowizard)
 
 HydroWizard is a powerful and flexible tool designed to model, optimize, and simulate operations of any water resource system quickly and efficiently.
 
