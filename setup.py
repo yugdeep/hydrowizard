@@ -6,7 +6,7 @@ with open('README.md', encoding='utf-8') as f:
 
 setup(
     name="hydrowizard",
-    version="0.1.3",  # This should match the version in pyproject.toml
+    version="0.1.5",  # This should match the version in pyproject.toml
     description="A tool for managing water resources",
     long_description=long_description,
     long_description_content_type='text/markdown',

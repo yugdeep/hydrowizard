@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.abspath('../..'))
 project = 'HydroWizard'
 copyright = '2024, Yugdeep Bangar'
 author = 'Yugdeep Bangar'
-version = '0.1.3'  # Update this to match your project version
+version = '0.1.5'  # Update this to match your project version
 
 # -- General configuration ---------------------------------------------------
 extensions = [
