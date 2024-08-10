@@ -1,0 +1,13 @@
+include MANIFEST.in
+include README.md
+include LICENSE
+include pyproject.toml
+include setup.py
+recursive-include hydrowizard *.py
+recursive-include docs *.bat
+recursive-include docs *.py
+recursive-include docs *.rst
+recursive-include docs Makefile
+prune examples
+prune tests
+global-exclude *.py[cod] __pycache__ *.so *.sh *.DS_Store *.cfg *.lock

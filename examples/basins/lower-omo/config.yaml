@@ -1,0 +1,187 @@
+basin:
+  name: "Lower Omo"
+  simulation_start_time: "2029-01-01 00:00"
+  simulation_horizon: 12
+  integration_interval: 12
+  cyclostationarity_interval: "month"
+  optimization_method: MOEA RBF # Others coming soon
+
+nodes:
+  - name: "Gibe-III"
+    reservoir_node: True
+    initial_volume: 11750000000.0
+    max_volume: 11750000000.0
+    min_volume: 7000000000.0
+    bathymetry: "Bathymetry Gibe-III.csv"
+    evaporation_rate: # mm/month
+      - 30.32 # January
+      - 31.04 # February
+      - 56.73 # March
+      - 93.36 # April
+      - 103.59 # May
+      - 89.21 # June
+      - 74.13 # July
+      - 78.86 # August
+      - 73.49 # September
+      - 87.72 # October
+      - 63.18 # November
+      - 43.01 # December
+    power_generation_node: True
+    turbine_max_power: 1870.0
+    turbine_efficiency: 0.9
+    turbine_head: 9.0
+    turbine_max_flow_rate: 1064.0 # m^3/s
+    # annual_power_generation: 6400 # GWh/yr
+  - name: "Koysha"
+    reservoir_node: True
+    initial_volume: 000000000.0
+    max_volume: 6000000000.0
+    min_volume: 3000000000.0
+    bathymetry: "Bathymetry Koysha.csv"
+    evaporation_rate: # mm/month
+      - 30.32 # January
+      - 31.04 # February
+      - 56.73 # March
+      - 93.36 # April
+      - 103.59 # May
+      - 89.21 # June
+      - 74.13 # July
+      - 78.86 # August
+      - 73.49 # September
+      - 87.72 # October
+      - 63.18 # November
+      - 43.01 # December
+    power_generation_node: True
+    turbine_max_power: 2160.0
+    turbine_efficiency: 0.9
+    turbine_head: 8.5
+    turbine_max_flow_rate: 1440.0 # m^3/s
+    # annual_power_generation: 6460 # GWh/yr
+  - name: "Kuraz Headworks"
+  - name: "Omorate"
+
+flows:
+  - name: "Flow A"
+    source_node: null
+    target_node: "Gibe-III"
+    kind: "x"
+    flow_rate: # m^3/s
+      - 53.61 # January
+      - 47.81 # February
+      - 40.70 # March
+      - 58.80 # April
+      - 88.19 # May
+      - 191.98 # June
+      - 582.05 # July
+      - 942.25 # August
+      - 592.34 # September
+      - 316.45 # October
+      - 138.75 # November
+      - 69.97 # December
+  - name: "Flow B"
+    source_node: null
+    target_node: "Koysha"
+    kind: "x"
+    flow_rate: # m^3/s
+      - 21.44 # January
+      - 19.12 # February
+      - 16.28 # March
+      - 23.52 # April
+      - 35.28 # May
+      - 76.79 # June
+      - 232.82 # July
+      - 376.90 # August
+      - 236.94 # September
+      - 126.58 # October
+      - 55.50 # November
+      - 27.99 # December
+  - name: "Flow C"
+    source_node: null
+    target_node: "Omorate"
+    kind: "x"
+    flow_rate: # m^3/s
+      - 15.01 # January
+      - 13.39 # February
+      - 11.40 # March
+      - 16.46 # April
+      - 24.69 # May
+      - 53.75 # June
+      - 162.97 # July
+      - 263.83 # August
+      - 165.86 # September
+      - 88.61 # October
+      - 38.85 # November
+      - 19.59 # December
+  - name: "Gibe-III Release"
+    source_node: "Gibe-III"
+    target_node: "Koysha"
+    kind: "l"
+  - name: "Koysha Release"
+    source_node: "Koysha"
+    target_node: "Kuraz Headworks"
+    kind: "l"
+  - name: "Canals to Kuraz Sugar Plantations"
+    source_node: "Kuraz Headworks"
+    target_node: null
+    kind: "l"
+    demand_flow: True
+    demand_rate: # m^3/s
+      - 98.77 # January
+      - 56.58 # February
+      - 15.43 # March
+      - 0.00 # April
+      - 17.49 # May
+      - 17.49 # June
+      - 29.84 # July
+      - 54.53 # August
+      - 48.35 # September
+      - 75.62 # October
+      - 105.45 # November
+      - 104.42 # December
+  - name: "Gibe-III Evaporation"
+    source_node: "Gibe-III"
+    target_node: null
+    kind: "r"
+    evaporation_flow: True
+  - name: "Koysha Evaporation"
+    source_node: "Koysha"
+    target_node: null
+    kind: "r"
+    evaporation_flow: True
+  - name: "Main Channel"
+    source_node: "Kuraz Headworks"
+    target_node: "Omorate"
+    kind: "r"
+  - name: "Outflow to Lake Turkana"
+    source_node: "Omorate"
+    target_node: null
+    kind: "r"
+    demand_flow: True
+    demand_rate:
+      - 29.72 # January
+      - 26.50 # February
+      - 22.56 # March
+      - 32.59 # April
+      - 48.89 # May
+      - 106.43 # June
+      - 322.68 # July
+      - 522.68 # August
+      - 328.39 # September
+      - 175.44 # October
+      - 76.92 # November
+      - 38.79 # December
+
+objectives:
+  - name: Hydropower
+    kind: Power Generation Maximization
+    target_node:
+      - Gibe-III
+      - Koysha
+  - name: Irrigation
+    kind: Monthly Demand Deficit Minimization
+    quantile: 0.9
+    target_flow: Canals to Kuraz Sugar Plantations
+  - name: Environment
+    kind: Monthly Demand Deficit Minimization
+    quantile: 0.9
+    target_flow: Outflow to Lake Turkana

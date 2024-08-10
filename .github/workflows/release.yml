@@ -1,0 +1,146 @@
+name: Release and Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    if: startsWith(github.event.head_commit.message, 'Release:')
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: 1.8.3
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+    - name: Install dependencies
+      run: poetry install --with dev,docs
+    - name: Run tests
+      run: poetry run pytest
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+          
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: 1.8.3
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+
+    - name: Install dependencies
+      run: poetry install --with dev,docs
+
+    - name: Update version
+      run: |
+        VERSION=$(echo "${{ github.event.head_commit.message }}" | grep -oP 'Release: Bump version to \K[0-9]+\.[0-9]+\.[0-9]+')
+        
+        # Update version in pyproject.toml
+        poetry version $VERSION
+        
+        # Update version in setup.py
+        sed -i "s/version=\".*\"/version=\"$VERSION\"/" setup.py
+        
+        # Update version in README.md
+        sed -i "s/pypi-v[0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*/pypi-v$VERSION/" README.md
+
+        # Update version in conf.py
+        sed -i "s/version = '.*'/version = '$VERSION'/" docs/source/conf.py
+
+        # Verify the changes
+        echo "Updated versions:"
+        echo "pyproject.toml: $(grep version pyproject.toml)"
+        echo "setup.py: $(grep 'version=' setup.py)"
+        echo "README.md: $(grep 'test--pypi-v' README.md)"
+        echo "conf.py: $(grep 'version = ' docs/source/conf.py)"
+        
+        # Commit changes
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add pyproject.toml setup.py README.md docs/source/conf.py
+        git commit -m "Update version to $VERSION in all files"
+        git push
+
+    - name: Copy LICENSE to docs
+      run: cp LICENSE docs/source/
+
+    - name: Build documentation
+      run: |
+        cd docs
+        poetry run make html
+        cd ..
+
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: './docs/build/html'
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+  
+    - name: Get version
+      id: get_version
+      run: echo "VERSION=$(poetry version -s)" >> $GITHUB_OUTPUT
+
+    - name: Create Release
+      uses: actions/github-script@v7
+      env:
+        VERSION: ${{ steps.get_version.outputs.VERSION }}
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          try {
+            const response = await github.rest.repos.createRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag_name: `v${process.env.VERSION}`,
+              name: `Release ${process.env.VERSION}`,
+              body: `Release version ${process.env.VERSION}`,
+              draft: false,
+              prerelease: false
+            });
+            console.log(`Release created: ${response.data.html_url}`);
+          } catch (error) {
+            core.setFailed(error.message);
+          }
+
+    - name: Build package
+      run: poetry build
+
+    - name: Publish to PyPI
+      env:
+        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+        TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+      run: |
+        poetry run twine upload --repository pypi dist/*
