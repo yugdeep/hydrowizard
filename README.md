@@ -1,6 +1,6 @@
 # HydroWizard
 
-[![PyPI version](https://img.shields.io/badge/pypi-v0.1.0-blue)](https://pypi.org/project/hydrowizard/)
+[![PyPI version](https://img.shields.io/badge/pypi-v0.1.2-blue)](https://pypi.org/project/hydrowizard/)
 [![Build](https://github.com/yugdeep/hw-python/workflows/CI/badge.svg)](https://github.com/yugdeep/hw-python/actions)
 [![Documentation](https://github.com/yugdeep/hw-python/actions/workflows/docs.yml/badge.svg)](https://github.com/yugdeep/hw-python/actions/workflows/docs.yml)
 [![Release](https://github.com/yugdeep/hw-python/actions/workflows/release.yml/badge.svg)](https://github.com/yugdeep/hw-python/actions/workflows/release.yml)
