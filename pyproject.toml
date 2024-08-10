@@ -13,6 +13,7 @@ include = [
     "setup.py",
     "docs/**/*.bat",
     "docs/**/*.py",
+    "docs/**/*.txt",
     "docs/**/*.rst",
     "docs/Makefile",
 ]
