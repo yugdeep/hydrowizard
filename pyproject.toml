@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hydrowizard"
-version = "0.1.4"
+version = "0.1.5"
 description = "A tool for managing water resources"
 authors = ["Yugdeep Bangar <yugdeep@hydrowizard.ai>"]
 license = "Proprietary"
