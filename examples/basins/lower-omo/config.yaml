@@ -3,7 +3,7 @@ basin:
   simulation_start_time: "2029-01-01 00:00"
   simulation_horizon: 12 # years
   integration_interval: 12 # months
-  cyclostationarity_interval: "month" # / "half month" / "two month" / "quarter"
+  cyclostationarity_interval: "month"
   optimization_method: "MOEA RBF"
 
 nodes:
