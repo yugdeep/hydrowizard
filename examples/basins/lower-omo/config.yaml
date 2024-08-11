@@ -1,17 +1,17 @@
 basin:
   name: "Lower Omo"
   simulation_start_time: "2029-01-01 00:00"
-  simulation_horizon: 12
-  integration_interval: 12
-  cyclostationarity_interval: "month"
-  optimization_method: MOEA RBF # Others coming soon
+  simulation_horizon: 12 # years
+  integration_interval: 12 # months
+  cyclostationarity_interval: "month" # / "half month" / "two month" / "quarter"
+  optimization_method: "MOEA RBF"
 
 nodes:
   - name: "Gibe-III"
     reservoir_node: True
-    initial_volume: 11750000000.0
-    max_volume: 11750000000.0
-    min_volume: 7000000000.0
+    initial_volume: 11750000000.0 # m^3
+    max_volume: 11750000000.0 # m^3
+    min_volume: 7000000000.0 # m^3
     bathymetry: "Bathymetry Gibe-III.csv"
     evaporation_rate: # mm/month
       - 30.32 # January
@@ -27,16 +27,15 @@ nodes:
       - 63.18 # November
       - 43.01 # December
     power_generation_node: True
-    turbine_max_power: 1870.0
-    turbine_efficiency: 0.9
-    turbine_head: 9.0
+    turbine_max_power: 1870.0 # MW
+    turbine_efficiency: 0.9 # 0-1
+    turbine_head: 9.0 # m
     turbine_max_flow_rate: 1064.0 # m^3/s
-    # annual_power_generation: 6400 # GWh/yr
   - name: "Koysha"
     reservoir_node: True
-    initial_volume: 000000000.0
-    max_volume: 6000000000.0
-    min_volume: 3000000000.0
+    initial_volume: 0.0 # m^3
+    max_volume: 6000000000.0 # m^3
+    min_volume: 3000000000.0 # m^3
     bathymetry: "Bathymetry Koysha.csv"
     evaporation_rate: # mm/month
       - 30.32 # January
@@ -52,11 +51,10 @@ nodes:
       - 63.18 # November
       - 43.01 # December
     power_generation_node: True
-    turbine_max_power: 2160.0
-    turbine_efficiency: 0.9
-    turbine_head: 8.5
+    turbine_max_power: 2160.0 # MW
+    turbine_efficiency: 0.9 # 0-1
+    turbine_head: 8.5 # m
     turbine_max_flow_rate: 1440.0 # m^3/s
-    # annual_power_generation: 6460 # GWh/yr
   - name: "Kuraz Headworks"
   - name: "Omorate"
 
@@ -172,16 +170,16 @@ flows:
       - 38.79 # December
 
 objectives:
-  - name: Hydropower
-    kind: Power Generation Maximization
+  - name: "Hydropower"
+    kind: "Power Generation Maximization"
     target_node:
-      - Gibe-III
-      - Koysha
-  - name: Irrigation
-    kind: Monthly Demand Deficit Minimization
-    quantile: 0.9
-    target_flow: Canals to Kuraz Sugar Plantations
-  - name: Environment
-    kind: Monthly Demand Deficit Minimization
-    quantile: 0.9
-    target_flow: Outflow to Lake Turkana
+      - "Gibe-III"
+      - "Koysha"
+  - name: "Irrigation"
+    kind: "Monthly Demand Deficit Minimization"
+    quantile: 0.9 # 0-1
+    target_flow: "Canals to Kuraz Sugar Plantations"
+  - name: "Environment"
+    kind: "Monthly Demand Deficit Minimization"
+    quantile: 0.9 # 0-1
+    target_flow: "Outflow to Lake Turkana"
