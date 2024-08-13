@@ -1,5 +1,90 @@
-© 2024 Yugdeep Bangar. All rights reserved.
+Copyright (c) 2024 Yugdeep Bangar. All rights reserved.
 
-This software and associated documentation files (the "Software") are proprietary to Yugdeep Bangar and are protected by copyright law. Unauthorized use, reproduction, modification, distribution, or any form of exploitation of the Software, in whole or in part, is strictly prohibited without prior written permission from the copyright holder.
+Software License Agreement
 
-For permissions, please contact: yugdeep@hydrowizard.ai
+This license agreement (the "License") governs the use of the software, including all associated source code, documentation, and any accompanying materials (collectively, the "Software") provided by Yugdeep Bangar ("Licensor"). By using the Software, you ("Licensee") accept and agree to be bound by the terms of this License.
+
+1. Definitions
+
+"Non-Commercial" means academic, research, or personal use without monetary compensation or commercial advantage. This includes use by non-profit organizations, educational institutions, and individuals for personal projects not intended for monetary gain.
+
+"Commercial Use" means any use intended for or directed toward commercial advantage or monetary compensation.
+
+2. Non-Commercial License
+
+2.1 Grant of License
+
+Subject to the terms and conditions of this License, Licensor grants Licensee a non-exclusive, non-transferable, non-sublicensable license to use the Software for Non-Commercial purposes only.
+
+2.2 Permissions
+
+Licensee may:
+a) Use the Software for academic research and teaching at educational institutions.
+b) Use the Software for personal, non-profit projects.
+c) Modify the Software and distribute modifications, provided they are released under these same terms.
+d) Distribute verbatim copies of the Software, including this License and copyright notice.
+
+2.3 Restrictions
+
+Licensee may not:
+a) Use the Software for any Commercial Use.
+b) Distribute the Software as part of a commercial product or service.
+c) Remove or alter any copyright notices or this License text from the Software.
+d) Sublicense, sell, rent, lease, or otherwise transfer rights to the Software.
+
+2.4 Contributions
+
+Any contributions intentionally submitted for inclusion in the Software shall be subject to this License.
+
+3. Commercial Use
+
+For any Commercial Use of the Software, including but not limited to:
+- Integration into commercial products or services
+- Use by commercial entities for any purpose
+- Any use resulting in direct or indirect financial gain
+
+A separate commercial license is required. For commercial licensing inquiries, please contact: yugdeep@hydrowizard.ai
+
+4. Term and Termination
+
+This License is effective until terminated. Licensor may terminate this License at any time if Licensee breaches any of its terms. Upon termination, Licensee must cease all use of the Software and destroy all copies.
+
+5. Disclaimer of Warranty
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+
+6. Limitation of Liability
+
+IN NO EVENT SHALL LICENSOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+7. General Provisions
+
+7.1 Entire Agreement
+
+This License constitutes the entire agreement between Licensee and Licensor concerning the use of the Software and supersedes all prior or contemporaneous oral or written communications, proposals, and representations with respect to its subject matter.
+
+7.2 Governing Law and Dispute Resolution
+
+This License shall be governed by and construed in accordance with the laws of the jurisdiction in which Licensor is located, without giving effect to any principles of conflicts of law. Any dispute arising out of or in connection with this License shall be resolved through good faith negotiations between the parties. If the dispute cannot be resolved through negotiations, it shall be submitted to binding arbitration in accordance with the rules of a mutually agreed upon arbitration body.
+
+7.3 Modifications to License Terms
+
+Licensor reserves the right to modify the terms of this License at any time. Such changes will not affect copies of the Software already distributed under the previous terms.
+
+7.4 Severability
+
+If any provision of this License is held to be unenforceable or invalid, that provision will be enforced to the maximum extent possible, and the other provisions will remain in full force and effect.
+
+7.5 Assignment
+
+Licensee may not assign or transfer this License or any rights granted hereunder without Licensor's prior written consent. Any attempt to do so without such consent will be void.
+
+7.6 Compliance with Laws
+
+Licensee agrees to comply with all applicable laws and regulations in connection with the use and distribution of the Software.
+
+7.7 Updates and Support
+
+This License does not entitle Licensee to any updates, maintenance, or support for the Software. Any such services, if provided, will be subject to separate terms.
+
+For any questions regarding this License, please contact yugdeep@hydrowizard.ai.
