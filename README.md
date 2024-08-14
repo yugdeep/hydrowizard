@@ -4,7 +4,8 @@
 [![Build](https://github.com/yugdeep/hydrowizard/workflows/CI/badge.svg)](https://github.com/yugdeep/hydrowizard/actions)
 [![Documentation](https://github.com/yugdeep/hydrowizard/actions/workflows/docs.yml/badge.svg)](https://github.com/yugdeep/hydrowizard/actions/workflows/docs.yml)
 [![Release](https://github.com/yugdeep/hydrowizard/actions/workflows/release.yml/badge.svg)](https://github.com/yugdeep/hydrowizard/actions/workflows/release.yml)
-[![License](https://img.shields.io/badge/License-Custom-blue.svg)](https://github.com/yugdeep/hydrowizard/blob/main/LICENSE)[![Python Versions](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)](https://github.com/yugdeep/hydrowizard)
+[![License](https://img.shields.io/badge/License-Custom-blue.svg)](https://github.com/yugdeep/hydrowizard/blob/main/LICENSE)
+[![Python Versions](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)](https://github.com/yugdeep/hydrowizard)
 
 HydroWizard is a powerful and flexible tool designed to model, optimize, and simulate operations of any water resource system quickly and efficiently.
 
