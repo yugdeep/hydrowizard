@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "hydrowizard"
 version = "0.1.11"
-description = "A tool for managing water resources"
+description = "HydroWizard: State-of-the-art water basin modeling, optimization, and simulation using neural networks, genetic algorithms, and DAGs."
 authors = ["Yugdeep Bangar <yugdeep@hydrowizard.ai>"]
-license = "Custom"
+license = "Other"
 readme = "README.md"
 repository = "https://github.com/yugdeep/hydrowizard"
 homepage = "https://www.hydrowizard.ai"
@@ -19,7 +19,7 @@ include = [
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: Other :: Custom License",
+    "License :: Other/Proprietary License",
     "Operating System :: OS Independent",
 ]
 
