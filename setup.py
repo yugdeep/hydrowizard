@@ -16,7 +16,7 @@ setup(
     packages=find_packages(exclude=('tests',)),
     install_requires=[
         "graphviz>=0.20.3,<0.21.0",
-        "matplotlib>=3.9.1,<4.0.0",
+        "matplotlib>=3.8.0,<4.0.0",
         "networkx>=3.3,<4.0",
         "numpy>=2.0.1,<3.0.0",
         "openpyxl>=3.1.5,<4.0.0",

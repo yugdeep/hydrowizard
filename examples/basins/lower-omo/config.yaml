@@ -177,9 +177,9 @@ objectives:
       - "Koysha"
   - name: "Irrigation"
     kind: "Monthly Demand Deficit Minimization"
-    quantile: 0.9 # 0-1
+    quantile: 1.0 # 0-1
     target_flow: "Canals to Kuraz Sugar Plantations"
   - name: "Environment"
     kind: "Monthly Demand Deficit Minimization"
-    quantile: 0.9 # 0-1
+    quantile: 1.0 # 0-1
     target_flow: "Outflow to Lake Turkana"

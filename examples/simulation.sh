@@ -3,7 +3,7 @@
 # Set default values
 DEFAULT_SIMULATION_HORIZON=12
 DEFAULT_INTERVAL_DURATION=12
-DEFAULT_POLICY_SOURCE='optimization-results/LowerOmo/20240629160350/ParetoBestX.txt'
+DEFAULT_POLICY_SOURCE='best_from_latest:optimization-results'
 
 # Get values from arguments or use default values
 SIMULATION_HORIZON=${1:-$DEFAULT_SIMULATION_HORIZON}
@@ -19,7 +19,7 @@ hw-simulation --config_file basins/lower-omo/config.yaml \
     --visualize_intervals '1,796,1591,2386,3181,3976,4771,5566,6361,7156,7951,8746'
 
     # --include_intermediate_results
-
+    # --policy_source 'optimization-results/LowerOmo/20241019090411/ParetoBestX.txt' \
     # --policy_source 'optimization-results/LowerOmo/20240628153405/ParetoBestX.txt' \
     # --policy_source 'best_from_latest:optimization-results' \
     # --policy_source 'best_from_db' \

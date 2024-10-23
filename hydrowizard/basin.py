@@ -908,7 +908,7 @@ class Basin:
                 flow, cyclostationarity_number
             ]
             evaporation_flow_rates[flow] = (
-                evaporation_rate * surface * 0.01 * (1 / (30 * 24 * 60 * 60))
+                evaporation_rate * surface * 0.001 * (1 / (30 * 24 * 60 * 60))
             )
         return evaporation_flow_rates
 
@@ -1114,11 +1114,12 @@ class Basin:
                     )
                 )
 
-                for flow, rate in zip(l_flow_names, policy_outputs):
-                    df_flow_rates.loc[flow, interval_index] = round(
-                        max(min(rate, remaining_outflow_rate), 0), round_decimals
-                    )
-                    remaining_outflow_rate -= df_flow_rates.loc[flow, interval_index]
+                for flow, rate in zip(self.l_flow_names, policy_outputs):
+                    if flow in l_flow_names:
+                        df_flow_rates.loc[flow, interval_index] = round(
+                                max(min(rate, remaining_outflow_rate), 0), round_decimals
+                        )
+                        remaining_outflow_rate -= df_flow_rates.loc[flow, interval_index]
 
                 total_outflow_rate = sum(
                     df_flow_rates.loc[flow.name, interval_index]

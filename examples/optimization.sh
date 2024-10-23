@@ -20,5 +20,6 @@ hw-optimization --config_file basins/lower-omo/config.yaml \
     --interval_duration $INTERVAL_DURATION \
     --num_generations $NUM_GENERATIONS \
     --random_seed $RANDOM_SEED \
-    --n_processes 8 \
-    --db_logging
+    --n_processes 8
+
+    # --db_logging
