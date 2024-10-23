@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hydrowizard"
-version = "0.1.12"
+version = "0.2.0"
 description = "HydroWizard: State-of-the-art water basin modeling, optimization, and simulation using neural networks, genetic algorithms, and DAGs."
 authors = ["Yugdeep Bangar <yugdeep@hydrowizard.ai>"]
 license = "Other"
