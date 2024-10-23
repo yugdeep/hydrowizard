@@ -6,7 +6,7 @@ with open('README.md', encoding='utf-8') as f:
 
 setup(
     name="hydrowizard",
-    version="0.1.12",  # This should match the version in pyproject.toml
+    version="0.2.0",  # This should match the version in pyproject.toml
     description="HydroWizard: State-of-the-art water basin modeling, optimization, and simulation using neural networks, genetic algorithms, and DAGs.",
     long_description=long_description,
     long_description_content_type='text/markdown',
